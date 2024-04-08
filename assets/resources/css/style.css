@@ -46,7 +46,7 @@
   position: relative;
 }
 .slider_area_section{
-  height: 680px;
+  height: 510px;
 }
 .slider_area_section img{
   height: 100%;
@@ -66,14 +66,13 @@
 }
 .slider_content {
   position: absolute;
-  top: 50%;
+  top: 42%;
   z-index: 2;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
   font-weight: bold;
-  font-size: 35px;
-  width: 90%;
+  font-size: 25px;
   text-align: center;
 }
 .slide-btn a{
@@ -205,7 +204,7 @@
   }
   /* owl-carousel-category End */
 .top_heading{
-  min-height: 100px;
+  min-height: 88px;
   padding: .5em 0;
   
   background-color: #EBEBEB;
@@ -222,11 +221,11 @@
   justify-content: space-between;
 }
 .left_logo{
-  width: 240px;
+  width: 195ox;
   height: auto;
 }
 .right_logo {
-  width: 121px;
+  width: 90px;
   height: auto;
 }
 /* navbar */
@@ -263,13 +262,13 @@
 
 /* module section starts */
 .module_title{
-  margin: 4rem 0;
+  margin: 3rem 0;
 }
 .module_title h2{
   text-align: center;
   color: #374948;
-  font-size: 40px;
-  margin-top: 5rem;
+  font-size: 35px;
+  margin-top: 3rem;
 }
 .module_title h2 span{
   color: #68d08b;
@@ -297,9 +296,13 @@ z-index: -9;
 .module_item{
   border: 1px solid #68d08b;
 }
-.module_section{
-  background-color: #fff;
+.module_section{  
   color: #075e24;
+  margin-bottom: 5rem;
+}
+.module_container{
+  width: 60%;
+  margin: 0 auto;
 }
 
 .module_item i,.module_item h3{
@@ -308,11 +311,11 @@ z-index: -9;
 /* module section ends */
 /* course starts */
 .course_section{
-  margin: 5rem 0;
+  margin: 8rem 0;
 }
 .course_section_left{
   width: 100%;
-  height: 500px;
+  height: auto;
 }
 .course_section_left .image-container {
   position: relative;
@@ -324,7 +327,7 @@ z-index: -9;
 .course_section_left img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 366px;
 }
 
 .course_section_left .course_overlay {
@@ -342,7 +345,7 @@ z-index: -9;
 
 }
 .course_overlay h2 {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 7700;
   color: #fff;
 }
@@ -430,6 +433,8 @@ z-index: -9;
 .footer_section{
   background: #075e24;
   color: #fff;
+  width: 69%;
+  margin: 0 auto;
 }
 .footer_section p{
   padding-top: 5px;
@@ -463,6 +468,8 @@ text-align: center;
 }
 .footer-bottom {
       background-color: #231f20;
+      width: 69%;
+      margin: 0 auto;
       padding: 1rem;
       color: #fff;
       display: flex;

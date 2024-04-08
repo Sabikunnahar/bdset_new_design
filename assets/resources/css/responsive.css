@@ -1,5 +1,22 @@
+@media screen and (max-width:1880px) {
+  .top_heading {
+    width: 94%;
+  }
+  .top_navbar {
+    width: 94%;
+  }
+  .slider_section {
+    width: 94%;
+  }
+}
+
+
+
+
+
+
 @media screen and (max-width:1390px) {
-    .slider_area_section {
+    /* .slider_area_section {
         height: 550px;
     }
     .slider_content{
@@ -7,7 +24,7 @@
     }
     .top_body{
         margin: 10px auto;
-    }
+    } */
 
 }
 
