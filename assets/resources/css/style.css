@@ -40,6 +40,7 @@
 
 /* Slider Area Css starts */
 .slider_section{
+  margin: 0 auto;
   margin-bottom: 5rem;
 }
 #slider-owl-carousel{
@@ -204,9 +205,9 @@
   }
   /* owl-carousel-category End */
 .top_heading{
+  margin: 0 auto;
   min-height: 88px;
   padding: .5em 0;
-  
   background-color: #EBEBEB;
   position: sticky;
   top: 0;
@@ -307,6 +308,9 @@ z-index: -9;
 
 .module_item i,.module_item h3{
   color: #075e24;
+}
+.module_item h3{
+  font-size: 16px;
 }
 /* module section ends */
 /* course starts */
