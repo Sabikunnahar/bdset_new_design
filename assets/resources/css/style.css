@@ -39,6 +39,19 @@
   /* Common CSS End*/
 
 /* Slider Area Css starts */
+.body_layout{
+  width: 100%;
+  height: auto;
+  margin: 0  auto;
+  background-image: url('assets/resources/img/bg_main.gif');
+  background-size: cover;
+  background-position: center;
+}
+.top_navbar .navbar_body ul li a {
+  font-size: 14px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 .slider_section{
   margin: 0 auto;
   margin-bottom: 5rem;
@@ -303,6 +316,10 @@ z-index: -9;
 }
 .module_container{
   width: 60%;
+  margin: 0 auto;
+}
+.module_container_top{
+  width: 69%;
   margin: 0 auto;
 }
 
