@@ -108,7 +108,7 @@
             <div class="module_container">
                 <div class="container">
                     <div class="row g-4">
-                        <div class="col-lg-3 col-sm-3 wow fadeInUp module_section" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-6 col-6 wow fadeInUp module_section" data-wow-delay="0.1s">
                             <div class="module_item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fab fa-3x fa-python mb-4"></i>
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-3 wow fadeInUp module_section" data-wow-delay="0.3s">
+                        <div class="col-lg-3 col-md-6 col-6 wow fadeInUp module_section" data-wow-delay="0.3s">
                             <div class="module_item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fas fa-3x fa-robot mb-4"></i>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-3 wow fadeInUp module_section" data-wow-delay="0.5s">
+                        <div class="col-lg-3 col-md-6 col-6 wow fadeInUp module_section" data-wow-delay="0.5s">
                             <div class="module_item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fab fa-3x fa-deezer mb-4"></i>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-3 wow fadeInUp module_section" data-wow-delay="0.7s">
+                        <div class="col-lg-3 col-md-6 col-6 wow fadeInUp module_section" data-wow-delay="0.7s">
                             <div class="module_item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fas fa-3x fa-satellite mb-4"></i>
@@ -152,14 +152,14 @@
             <div class="bottom-style"></div>
         </div>
         <div class="course_section">
-            <div class="module_container">
+            <div class="course_container">
                 <div class="row">
-                    <div class="col-lg-6 col-sm-12">
+                    <div class="col-lg-6 col-sm-6">
                         <div class="course_section_left">
                             <div class="image-container">
                                 <img src="/assets/resources/img/ai.jpg" alt="Slider Image">
                                 <div class="course_overlay">
-                                    <h2><strong>Training on AI for Immersive Technology</strong></h2><br>
+                                    <h2><strong>Training on AI for Immersive Technology</strong></h2>
                                     <p><strong> Modules :</strong></p>
                                     <ul>
                                         <li style="list-style: inside">Python Programming : 20 Hours</li>
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-12">
+                    <div class="col-lg-6 col-sm-6">
                         <div class="course_section_right">
                             <h2>Training on AI for Immersive Technology Details</h2>
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
@@ -199,8 +199,8 @@
                                     <div class="course_details_content">
                                         <h3>Benefits of The Course :</h3>
                                         <ul>
-                                            <li style="list-style: inside;">The participants will be able to accustom them with recent technology trends With Artificial Intelligence training, they can Formalize and design of systems capable of automated reasoning.</li>
-                                            <li style="list-style: inside;">The participant will learn Implementation and application of machine learning techniques in prediction problems.</li>
+                                            <li style="list-style: inside;">The participants will be able to accustom them with recent technology... <span style="color: #075e24;">Read more</span></li>
+                                            <li style="list-style: inside;">The participant will learn Implementation and application... <span style="color: #075e24;">Read more</span></li>
                                         </ul>
                                         <div class="readmore_button">
                                             <a href="#"> Read More...</a>
@@ -298,7 +298,50 @@
         </div>
         <!-- footer ends --> 
 
-
+        <div id="step1" class="step">
+            <!-- Step 1: Personal Information -->
+            <input type="text" name="firstname" placeholder="First Name">
+            <input type="text" name="lastname" placeholder="Last Name">
+            <button onclick="nextStep()">Next</button>
+        </div>
+        
+        <div id="step2" class="step" style="display:none;">
+            <!-- Step 2: Contact Details -->
+            <input type="email" name="email" placeholder="Email">
+            <input type="tel" name="phone" placeholder="Phone">
+            <button onclick="prevStep()">Previous</button>
+            <button onclick="nextStep()">Next</button>
+        </div>
+        
+        <div id="step3" class="step" style="display:none;">
+            <!-- Step 3: Account Setup -->
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button onclick="prevStep()">Previous</button>
+            <button onclick="submitForm()">Submit</button>
+        </div>
+        
+        <script>
+            let currentStep = 1;
+        
+            function nextStep() {
+                document.getElementById('step' + currentStep).style.display = 'none';
+                currentStep++;
+                document.getElementById('step' + currentStep).style.display = 'block';
+            }
+        
+            function prevStep() {
+                document.getElementById('step' + currentStep).style.display = 'none';
+                currentStep--;
+                document.getElementById('step' + currentStep).style.display = 'block';
+            }
+        
+            function submitForm() {
+                // Handle form submission here
+                alert('Form submitted successfully!');
+            }
+        </script>
+        
 
 
 
