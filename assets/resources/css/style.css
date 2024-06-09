@@ -322,10 +322,7 @@ z-index: -9;
   width: 60%;
   margin: 0 auto;
 }
-.course_container{
-  width: 60%;
-  margin: 0 auto;
-}
+
 .module_container_top{
   width: 69%;
   margin: 0 auto;
@@ -462,8 +459,11 @@ z-index: -9;
 .footer_section{
   background: #075e24;
   color: #fff;
-  width: 69%;
   margin: 0 auto;
+  padding-top: 30px;
+  padding-left: 8rem;
+  padding-bottom: 4rem;
+
 }
 .footer_section p{
   padding-top: 5px;
@@ -488,16 +488,15 @@ z-index: -9;
 .footer_section ul>li>a:hover{
   color: #00b894;
 }
-.footer-bottom .footer-content {
+.footer-bottom{
 flex-basis: 100%;
 text-align: center;
 }
 .footer_item p{
   font-size: 14px;
 }
-.footer-bottom {
+.footer_bottom {
       background-color: #231f20;
-      width: 69%;
       margin: 0 auto;
       padding: 1rem;
       color: #fff;
