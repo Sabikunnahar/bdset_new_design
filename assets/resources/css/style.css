@@ -460,7 +460,7 @@ z-index: -9;
   background: #075e24;
   color: #fff;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 39px;
   padding-left: 8rem;
   padding-bottom: 4rem;
 
@@ -486,11 +486,14 @@ z-index: -9;
   transform: rotate(360deg);
 }
 .footer_section ul>li>a:hover{
-  color: #00b894;
+  text-decoration: underline;
 }
 .footer-bottom{
 flex-basis: 100%;
 text-align: center;
+}
+.footer_item h3{
+  font-size: 21px;
 }
 .footer_item p{
   font-size: 14px;
@@ -504,6 +507,12 @@ text-align: center;
       align-items: center;
       justify-content: center;
   }
+.footer_bottom a{
+  padding: 0 5px;
+}
+.footer_bottom a:hover{
+  text-decoration: underline;
+}
 .top-Scroll {
 width: 4rem;
 height: 4rem;
@@ -519,4 +528,9 @@ border-radius: .5rem;
 .top-Scroll a {
   color: #fff;
 }
+.social_icon li a i{
+  padding: 15px;
+  margin-right: 3px;
+}
+
 /* footer ends */
