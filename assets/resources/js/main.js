@@ -6,9 +6,15 @@ $(document).ready(function(){
 /////////////////////////NAVBAR MENU ACTIVE JS END
 
         //toggle menu/navbar Scripts
-        $('.menu-btn').click(function(){
-            $('.navbar .menus ').toggleClass("active");
-            $('.navbar i ').toggleClass("active");
+        // $('.menu-btn').click(function(){
+        //     $('.nav-menu .menu ').toggleClass("active");
+        //     $('.nav-menu i ').toggleClass("active");
+        // });
+        $(document).ready(function(){
+            $('.menu-btn').click(function(){
+                $('.navbar_body').toggleClass("active");
+                $('.menu-btn i').toggleClass("active");
+            });
         });
 
         ///MAIN NAVBAR JS START HERE

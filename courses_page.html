@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon/nopsom-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendors/css/normalize.css">
+    <link rel="stylesheet" href="assets/vendors/css/grid.css">
+    <link rel="stylesheet" href="assets/vendors/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/owl.theme.default.min.css">
+    <!-- Resource CSS-->
+    <link rel="stylesheet" href="assets/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/resources/css/style.css">
+    <link rel="stylesheet" href="assets/resources/css/responsive.css">
+    <link rel="stylesheet" href="assets/resources/js/main.js">
+    <title>Starter</title>
+<style>
+    .owl-carousel-category .owl-carousel .owl-dots.disabled{
+        display: block;
+        margin: -9px;
+    }
+    .owl-carousel-category .owl-theme .owl-nav {
+        margin-top: 0px;
+        display: none;
+    }
+    .owl-carousel-category .owl-theme .owl-dots .owl-dot span {
+        margin-top: 20px;
+    }
+
+</style>
+</head>
+<body>
+    <div class="body_layout">
+        <div class="module_container_top">
+            <!-- header start -->
+            <section class="top_heading">
+                <div class="top_body">
+                    <img src="/assets/resources/img/all_logo/logo.png" alt="Left Logo" class="left_logo">
+                    <img src="/assets/resources/img/all_logo/ict_logo.png" alt="Right Logo" class="right_logo">
+                </div>
+            </section>
+            <!-- header ends -->
+            <!-- navbar starts -->
+            <div class="top_navbar">
+                <nav class="navbar navbar-expand-lg navbar-light"> 
+                    <div class="collapse navbar-collapse navbar_body" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="#">About</a>
+                            <ul class="submenu">
+                                <li class="submenu-item"><a href="#">Course 1</a></li>
+                                <li class="submenu-item"><a href="#">Course 2</a></li>
+                                <li class="submenu-item"><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Course</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Login</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="menu-btn">
+                <i class="abc fas fa-bars"></i>
+            </div>
+            <!-- navbar ends -->
+        </div>
+        {{-- owl-carousel-category Start --}}
+        <div class="owl-carousel-category">
+            {{-- <h3>Explore Category</h3> --}}
+            <div class="owl-carousel owl-theme">
+                @foreach($categories as $item)
+                <a href="">
+                    <div onclick="category_banner1(this.id)" id="{{ $item->id }}" class="item pt-4" style="background: url({{ asset($item->banner_img) }}); height:120px; background-size:cover"><p class="cat-name">{{$item->categories_name}}</p>
+                        @php
+                        $category_count = App\Models\Course::where('category_id',$item->id)->orderBy('id','ASC')->get();
+                        $categoryCount = count($category_count);
+                        @endphp
+                        <p style="font-size: 14px; font-weight:normal;">{{ $categoryCount }} Courses</p>
+                    </div>
+                </a>
+                @endforeach
+            </div>
+        </div>
+        {{-- owl-carousel-category Start --}}
+        {{-- Filtering Section Start --}}
+        <div class="module_container_top">
+            <div class="filtering-section">
+                <div class="filtering-area">
+                    <select id="category_filter" onchange="category_filtering()">
+                        <option label="--Filter By Course Category --"></option>
+                        @foreach($categories as $item)
+                        <option value="{{ $item->id }}">{{$item->categories_name}}</option>
+                        @endforeach
+                    </select>
+                    <div class="filter-btn">
+                        <a href="{{ route('course.view') }}">clear</a>
+                    </div>
+                </div>
+                <div class="total-couse-count">
+                    <span class="text-danger">Total: ({{ $count }}) Courses </span>
+                </div>
+            </div>
+        </div>
+        {{-- Filtering Section End --}}
+        
+        <div class="module_container_top">
+            <div class="our-course-title">
+                <h2>All <span>Courses</span></h2>
+                <div class="bottom-style"></div>
+            </div>
+        </div>
+        {{-- <div class="our-course-section" id="category_sort_ajax">
+            @foreach ($courses as $item)
+            <a class="our-course-item" href="{{ url('course/details/'.$item->id) }}" alt="">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="course-img">
+                            <img src="{{ asset($item->image) }}" alt="">
+                        </div>
+                        <div class="course-content">
+                            <h4 style="text-align: center; color: #000;
+                            text-shadow: 0px 8px 9px rgba(5, 5, 5, 0.8); font-weight:normal">{{ $item->courseName->course_name }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+        </div> --}}
+        
+        <div class="module_container_top">
+            <section class="our_course_section" >
+                <div class="container-fluid">
+                    <div class="row" id="category_sort_ajax" style="display: flex; justify-content: center">
+                        @foreach ($courses as $item)
+                        <div class="col-lg-4 mb-5">
+                            <a class="our-course-item" href="{{ url('course/details/'.$item->id) }}" alt="">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="course_img">
+                                            <img class="img-fluid" src="{{ asset($item->image) }}" alt="">
+                                        </div>
+                                        <div class="course_content_area">
+                                            <h4 class="mt-3">{{ $item->courseName->course_name }}</h4>
+                                            <p class="mt-3"><strong>Category</strong>:
+                                                @if($item->category == null)
+                                                @else
+                                                {{ $item->category->categories_name }}
+                                                @endif
+                                            </p>
+                                             <p>
+                                                <strong>Modules :</strong>
+                                                <ul>
+                                                    <li style="list-style: inside">Python Programming : 20 Hours</li>
+                                                    <li style="list-style: inside">AI & ML : 66 Hours</li>
+                                                    <li style="list-style: inside">DL : 60 Hours</li>
+                                                    <li style="list-style: inside">AR, VR, MR & XR : 70 Hours</li>
+                                                    <li style="list-style: inside">Communative English : 72 Hours</li>
+                                                </ul>
+                                            </p>
+                                            <p><strong>Total Course Duration : 6 Months (288 Hours)</strong></p>
+                                            <div style="display: flex; justify-content: space-between">
+                                                <button class="btn-lg btn btn-success d-inline-block mb-4" >Read More</button>
+                                                <a href="{{ url('student/registration', $item->id) }}"  class="btn-lg btn btn-success d-inline-block mb-4 mr-4">
+                                                    <span >Enroll</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- JS FILES -->
+    <script src="assets/resources/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/resources/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/042b6d566d.js" crossorigin="anonymous"></script>
+    <script src="assets/vendors/js/html5shiv.min.js"></script>
+    <script src="assets/vendors/js/respond.min.js"></script>
+    <script src="assets/vendors/js/selectivizr.js"></script>
+    <script src="assets/vendors/js/owl.carousel.min.js"></script>
+    <script src="assets/resources/js/main.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
