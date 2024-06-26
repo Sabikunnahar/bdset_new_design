@@ -20,17 +20,7 @@
     <link rel="stylesheet" href="assets/resources/js/main.js">
     <title>BDSET | Bangladesh-Bharot Digital Service and Employment Training Center</title>
 <style>
-    .owl-carousel-category .owl-carousel .owl-dots.disabled{
-        display: block;
-        margin: -9px;
-    }
-    .owl-carousel-category .owl-theme .owl-nav {
-        margin-top: 0px;
-        display: none;
-    }
-    .owl-carousel-category .owl-theme .owl-dots .owl-dot span {
-        margin-top: 20px;
-    }
+
 
 </style>
 </head>
@@ -86,70 +76,51 @@
             <!-- navbar ends -->
         </div>
         <!-- header ends -->
-        <!-- Our courses starts -->
-        <div class="owl-carousel-category">
-            <div class="owl-carousel owl-theme">
-                <a href="">
-                    <div onclick="category_banner1(this.id)" id="{{ $item->id }}" class="item pt-4" style="background: url(); height:120px; background-size:cover"><p class="cat-name">Course Name</p>
-
-                        <p style="font-size: 14px; font-weight:normal;">All Courses</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+         <!-- about ends -->
         <div class="module_container_top">
-            <div class="filtering-section">
-                <div class="filtering-area">
-                    <select id="category_filter" onchange="category_filtering()">
-                        <option label="--Filter By Course Category --"></option>
-                        <option value="{{ $item->id }}">Categories</option>
-                    </select>
-                    <div class="filter-btn">
-                        <a href="{{ route('course.view') }}">clear</a>
+            <div class="about-us">
+                <h2>about us</h2>
+            </div>
+            <section class="course-details mt-5" id="tab-section">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-5">
+                        <div class="faq-list">
+                            <div class="container-fluid">
+                                <ul class="nav faq-nav">
+                                    <li><a href="#faq-tab-content1" data-toggle="tab" class="active">About Us</a></li>
+                                    <li><a href="#faq-tab-content2" data-toggle="tab">Mission & Vision</a></li>
+                                </ul>
+                            </div> <!-- container -->
+                        </div> <!-- tab-list -->
                     </div>
-                </div>
-                <div class="total-couse-count">
-                    <span class="text-danger">Total: (01) Courses </span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="module_container_top">
-            <div class="module_title">
-                <h2>Our <span>Course</span></h2>
-                <div class="bottom-style"></div>
-            </div>
-            <section class="our_course_section" >
-                <div class="container-fluid">
-                    <div class="row" id="category_sort_ajax" style="display: flex; justify-content: center">
-                        <div class="col-lg-4">
-                            <div class="course_section_left">
-                                <div class="image-container">
-                                    <img src="/assets/resources/img/ai.jpg" alt="Slider Image">
-                                    <div class="course_overlay">
-                                        <h2><strong>Training on AI for Immersive Technology</strong></h2>
-                                        <p><strong> Modules :</strong></p>
-                                        <ul>
-                                            <li style="list-style: inside">Python Programming : 20 Hours</li>
-                                            <li style="list-style: inside">AI & ML : 66 Hours</li>
-                                            <li style="list-style: inside">DL : 60 Hours</li>
-                                            <li style="list-style: inside">AR, VR, MR & XR : 70 Hours</li>
-                                            <li style="list-style: inside">Communative English : 72 Hours</li>
-                                        </ul>
-                                        <p><strong>Total Course Duration : 6 Months (288 Hours)</strong></p>
-                                        <div class="enroll_button">
-                                            <a href="#">Read More</a>
-                                            <a href="#">Enroll Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
+                    <div class="col-lg-8 col-md-8 col-sm-7">
+                        <div class="tab-content faq-content">
+                            <div class="container-fluid tab-content faq-content">
+                                <div class="tab-pane about-tab-pane fade active show" id="faq-tab-content1">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>about</h2>
+                                            <p class="lead">Training Centre Management System (TCMS) is a web-based software to aid Training Centre Administrative Management Needs. The TCMS is capable of managing Enquiry Details, Payment Details, Student Details, Faculty Details etc. with high efficiency and easy and user-friendly manner.It also provides detailed and accurate report for managing the Training Centre</p>
+                                            <p>The system should be able to manage the training activities being organized at the centre. The system should provide role-based access to various category of users in the training institute linke staff adn its students.</p>
+                                            <p>The system should be able to take care of the complete workflow from the time a student registers to the time he/she passes out and is awarded a certificate. The Training management system should be user friendly. secure, robust and scalable. It should also support the integration with social media(Twitter, Facebook, Instagram etc). The institute can have a page on these social media platforms and the Training Management System should have facility for publishing their events and intersting content related to the institute on these pages.</p>
+                                        </div> <!-- col -->
+                                    </div> <!-- row -->
+                                </div> <!-- tab-pane -->
+                                <div class="tab-pane about-tab-pane fade" id="faq-tab-content2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>Mission & Vision</h2>
+                                              <p class="lead">Professional training for 2400 people in IT/ITES related subjects in collaboration with Indian Government.</p>
+                                        </div> <!-- col -->
+                                    </div> <!-- row -->
+                                </div> <!-- tab-pane -->
+                            </div> <!-- container -->
+                        </div> <!-- tab-content -->
                     </div>
                 </div>
             </section>
-        </div>
-        <!-- Our courses starts -->
+         </div>
+        <!-- about ends -->
         <!-- footer starts -->
         <footer class="module_container_top">
             <div class="footer_section">
@@ -198,7 +169,52 @@
                 <span>2023 © TCMS. All rights reserved.</span>
             </div>
         </div>
-        <!-- bottom footer ends -->         
+        <!-- bottom footer ends --> 
+
+        <!-- <div id="step1" class="step">
+            <input type="text" name="firstname" placeholder="First Name">
+            <input type="text" name="lastname" placeholder="Last Name">
+            <button onclick="nextStep()">Next</button>
+        </div>
+        <div id="step2" class="step" style="display:none;">
+            <input type="email" name="email" placeholder="Email">
+            <input type="tel" name="phone" placeholder="Phone">
+            <button onclick="prevStep()">Previous</button>
+            <button onclick="nextStep()">Next</button>
+        </div>
+        <div id="step3" class="step" style="display:none;">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button onclick="prevStep()">Previous</button>
+            <button onclick="submitForm()">Submit</button>
+        </div>
+        
+        <script>
+            let currentStep = 1;
+        
+            function nextStep() {
+                document.getElementById('step' + currentStep).style.display = 'none';
+                currentStep++;
+                document.getElementById('step' + currentStep).style.display = 'block';
+            }
+        
+            function prevStep() {
+                document.getElementById('step' + currentStep).style.display = 'none';
+                currentStep--;
+                document.getElementById('step' + currentStep).style.display = 'block';
+            }
+        
+            function submitForm() {
+                alert('Form submitted successfully!');
+            }
+        </script>
+         -->
+
+
+
+
+
+
 
 
 

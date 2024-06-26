@@ -20,30 +20,59 @@
     <link rel="stylesheet" href="assets/resources/js/main.js">
     <title>BDSET | Bangladesh-Bharot Digital Service and Employment Training Center</title>
 <style>
-    .owl-carousel-category .owl-carousel .owl-dots.disabled{
-        display: block;
-        margin: -9px;
-    }
-    .owl-carousel-category .owl-theme .owl-nav {
-        margin-top: 0px;
-        display: none;
-    }
-    .owl-carousel-category .owl-theme .owl-dots .owl-dot span {
-        margin-top: 20px;
-    }
+            .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(60vh - 80px);
+            /* Adjust based on header and footer height */
+            padding: 20px;
+        }
 
+        .step {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step.active {
+            display: flex;
+        }
+
+        .step input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .step button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
 </style>
 </head>
 <body>
     <div class="body_layout">
-        <!-- header start -->
         <div class="module_container_top">
+            <!-- header start -->
             <section class="top_heading">
                 <div class="top_body">
                     <img src="/assets/resources/img/all_logo/logo.png" alt="Left Logo" class="left_logo">
                     <img src="/assets/resources/img/all_logo/ict_logo.png" alt="Right Logo" class="right_logo">
                 </div>
             </section>
+            <!-- header ends -->
             <!-- navbar starts -->
             <div class="top_navbar">
                 <nav class="navbar navbar-expand-lg navbar-light"> 
@@ -53,7 +82,7 @@
                             <a class="nav-link text-white" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link text-white" href="about.html">About</a>
+                            <a class="nav-link text-white" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link text-white" href="courses_page.html">Course</a>
@@ -85,70 +114,74 @@
             </div>
             <!-- navbar ends -->
         </div>
-        <!-- header ends -->
         <!-- Our courses starts -->
-        <div class="owl-carousel-category">
-            <div class="owl-carousel owl-theme">
-                <a href="">
-                    <div onclick="category_banner1(this.id)" id="{{ $item->id }}" class="item pt-4" style="background: url(); height:120px; background-size:cover"><p class="cat-name">Course Name</p>
+        <div class="center-content">
+            <div id="step1" class="step active">
+                <input type="text" name="studentName" placeholder="Student Name">
+                <input type="date" name="date_of_birth" onblur="ageCheck()" placeholder="Date Of Birth">
+                <input type="email" name="emailAdress" placeholder="Email Address">
+                <input type="text" name="mobileNumber" placeholder="Mobile Number">
+    
+                <div>
+    
+                    <label for="gender">Gender :</label>
+                    
+                    <select class="selected" id="gender" name="gender"  placeholder="Mobile Number">
+                        
+                        <option value="MALE">MALE</option>
+                        <option value="MALE">FEMALE</option>
+                        <option value="MALE">OTHERS</option>
+                    </select>         
+                </div>    
+                              
+               
+                <input type="text" name="fathersName" placeholder="Father's Name">
+                <input type="text" name="mothersName" placeholder="Mother's Name">
+                <input type="text" name="religion" placeholder="Religion">
+                <input type="text" name="religion" placeholder="Blood Group">
+                <button onclick="nextStep()">Next</button>
+            </div>
+            <div id="step2" class="step">
+                <input type="email" name="email" placeholder="Batch">
+                <input type="tel" name="phone" placeholder="Venue">
+                <input type="tel" name="phone" placeholder="Educatinal Background">
+                <input type="tel" name="phone" placeholder="Institute Name">
+                <button onclick="prevStep()">Previous</button>
+                <button onclick="nextStep()">Next</button>
+            </div>
+            <div id="step3" class="step">
+                <div style="padding-bottom:15px">
+                    <label for="certificate1">Applicant Photo:</label>
+                    <input type="file" id="image" name="image1" accept="image/*">
+                </div>
+                <div style="padding-bottom:15px">
+                    <label for="image3">SSC/ Equivalent Certificate:</label>
+                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">    
+                </div>
+                <div style="padding-bottom:15px">
+                    <label for="image4">HSC/ Equivalent Certificate:</label>
+                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">     
+                </div>
+                <div style="padding-bottom:15px">
+                    <label for="image5">Graduation/Testmonial Certificate:</label>
+                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                </div>
+                <div style="padding-bottom:15px">
+                    <label for="certificate5">Other Certificate/ Achievement:</label>
+                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                </div>
+    
+                <button onclick="prevStep()">Previous</button>
+                <button onclick="submitForm()">Submit</button>
+            </div>
+            <!-- Pagination at the bottom -->
+            <div class="pagination">
+                <span class="step-number active" onclick="showStep(1)">1</span>
+                <span class="step-number" onclick="showStep(2)">2</span>
+                <span class="step-number" onclick="showStep(3)">3</span>
+            </div>
+        </div>
 
-                        <p style="font-size: 14px; font-weight:normal;">All Courses</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="module_container_top">
-            <div class="filtering-section">
-                <div class="filtering-area">
-                    <select id="category_filter" onchange="category_filtering()">
-                        <option label="--Filter By Course Category --"></option>
-                        <option value="{{ $item->id }}">Categories</option>
-                    </select>
-                    <div class="filter-btn">
-                        <a href="{{ route('course.view') }}">clear</a>
-                    </div>
-                </div>
-                <div class="total-couse-count">
-                    <span class="text-danger">Total: (01) Courses </span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="module_container_top">
-            <div class="module_title">
-                <h2>Our <span>Course</span></h2>
-                <div class="bottom-style"></div>
-            </div>
-            <section class="our_course_section" >
-                <div class="container-fluid">
-                    <div class="row" id="category_sort_ajax" style="display: flex; justify-content: center">
-                        <div class="col-lg-4">
-                            <div class="course_section_left">
-                                <div class="image-container">
-                                    <img src="/assets/resources/img/ai.jpg" alt="Slider Image">
-                                    <div class="course_overlay">
-                                        <h2><strong>Training on AI for Immersive Technology</strong></h2>
-                                        <p><strong> Modules :</strong></p>
-                                        <ul>
-                                            <li style="list-style: inside">Python Programming : 20 Hours</li>
-                                            <li style="list-style: inside">AI & ML : 66 Hours</li>
-                                            <li style="list-style: inside">DL : 60 Hours</li>
-                                            <li style="list-style: inside">AR, VR, MR & XR : 70 Hours</li>
-                                            <li style="list-style: inside">Communative English : 72 Hours</li>
-                                        </ul>
-                                        <p><strong>Total Course Duration : 6 Months (288 Hours)</strong></p>
-                                        <div class="enroll_button">
-                                            <a href="#">Read More</a>
-                                            <a href="#">Enroll Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
         <!-- Our courses starts -->
         <!-- footer starts -->
         <footer class="module_container_top">
@@ -157,10 +190,6 @@
                     <div class="col-lg-5 col-md-5 col-sm-12 footer_item">
                         <h3 class="text-white fw-bold h2">Who we are</h3>
                         <p>Training Centre Management System (TCMS) is a web-based software to aid Training Centre Administrative Management Needs by Bangladesh Hi Tech park.</p>
-                        <!-- <ul>
-                            <li><a href="{{ url('/about') }}">About</a></li>
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                        </ul> -->
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12 footer_item">
                         <h3 class="text-white fw-bold h2">Quick Links</h3>
@@ -200,16 +229,7 @@
         </div>
         <!-- bottom footer ends -->         
 
-
-
-
     </div>
-
-
-
-
-
-
     <!-- JS FILES -->
     <script src="assets/resources/js/jquery-3.6.0.min.js"></script>
     <script src="assets/resources/js/bootstrap.min.js"></script>
@@ -221,5 +241,25 @@
     <script src="assets/vendors/js/owl.carousel.min.js"></script>
     <script src="assets/resources/js/main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let currentStep = 1;
+
+        function nextStep() {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            currentStep++;
+            document.getElementById('step' + currentStep).classList.add('active');
+        }
+
+        function prevStep() {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            currentStep--;
+            document.getElementById('step' + currentStep).classList.add('active');
+        }
+
+        function submitForm() {
+            alert('Form submitted successfully!');
+        }
+    </script>
+
 </body>
 </html>
