@@ -93,7 +93,7 @@
 
 }
 
-@media screen and (max-width:992px) {
+@media screen and (max-width:991px) {
 
   /****************Mbl menu start*************/
   .menu-btn{
@@ -183,7 +183,8 @@
 
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
+  /*********Top navbar**************/
   .top_heading {
     min-height: 80px;
   }
@@ -351,39 +352,41 @@
 }
 
 @media screen and (max-width:500px) {
-    .slider_area_section {
-        height: 223px;
-      }
-      .slider_section {
-        margin-bottom: 10px;
-      }
-      .module_title {
-        margin: 0;
-      }
-      .module_title h2 {
-        margin-top: 30px;
-        font-size: 21px;
-        margin-left: 30px;
-        margin-right: 30px;
-      }
-      .about_section p {
-        font-size: 12px;
-      }
-      /***footer***/
-      .footer_item{
-        padding-bottom: 14px; 
-      }
-      .footer_section {
-        padding-top: 21px;
-        padding-bottom: 15px;
-      }
-      .footer_section p {
-        width: 75%;
-      }
+  /********slider************/
+  .slider_area_section {
+    height: 223px;
+  }
+  .slider_section {
+    margin-bottom: 10px;
+  }
+  .module_title {
+    margin: 0;
+  }
+  .module_title h2 {
+    margin-top: 30px;
+    font-size: 21px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .about_section p {
+    font-size: 12px;
+  }
+  /***footer***/
+  .footer_item{
+    padding-bottom: 14px; 
+  }
+  .footer_section {
+    padding-top: 21px;
+    padding-bottom: 15px;
+  }
+  .footer_section p {
+    width: 75%;
+  }
       
 }
 
 @media screen and (max-width: 432px) {
+  /********slider************/
   .slider_area_section {
       height: 180px;
     }
@@ -469,10 +472,9 @@
     .footer_bottom{
       font-size: 9px;
     }
-
+}
   @media screen and (max-width:360px){
     .menu-btn {
         right: 3.2rem;
     }
-  }
 }
