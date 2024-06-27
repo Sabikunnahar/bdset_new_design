@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/resources/js/main.js">
     <title>BDSET | Bangladesh-Bharot Digital Service and Employment Training Center</title>
 <style>
-    .center-content {
+    .registration_section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,6 +66,61 @@
     overflow-y: auto;
     width: 300px; 
 }
+
+/* Checked design */
+
+.control {
+    display: flex;
+    align-items: center;
+}
+.control--checkbox input[type="checkbox"] {
+    display: none;
+}
+.control__indicator {
+    width: 20px;
+    height: 20px;
+    background-color: #e6e6e6;
+    border-radius: 4px;
+    position: relative;
+    margin-right: 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.control__indicator::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #007bff;
+    border-radius: 2px;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.control--checkbox input[type="checkbox"]:checked + .control__indicator {
+    background-color: #007bff;
+}
+.control--checkbox input[type="checkbox"]:checked + .control__indicator::after {
+    transform: scale(1);
+}
+
+.caption {
+    color: #333;
+    font-size: 14px;
+}
+
+.caption a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.caption a:hover {
+    color: #0056b3;
+}
+
 </style>
 </head>
 <body>
@@ -121,7 +176,7 @@
         </div>
         <!-- header ends -->
         <!-- registration starts -->
-        <div class="center-content">
+        <div class="registration_section">
             <div id="step1" class="step active">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 mb-3">
@@ -187,7 +242,7 @@
 
                 <button onclick="nextStep()">Next</button>
             </div>
-             <!-- step1 ends -->
+             <!-- step 1 ends -->
             <div id="step2" class="step">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 mb-3">
@@ -264,10 +319,9 @@
                 <button onclick="prevStep()">Previous</button>
                 <button onclick="nextStep()">Next</button>
             </div>
-            <!-- step2 ends -->
+            <!-- step 2 ends -->
             <div id="step3" class="step">
                <div class="row">
-
                 <div class="col-lg-6 col-sm-12 mb-3">
                     <label for="division">Division Name : <span style="color: red;">*</span></label>
                     <select class="form-control" style="padding: 1rem .75rem;">
@@ -339,16 +393,19 @@
                 </div>
                 <div class="col-12 mb-3">
                     <label class="control control--checkbox">
-                        <span class="caption">Accept our <a href="#">terms and conditions</a></span>
                         <input type="checkbox" checked="checked" />
                         <div class="control__indicator"></div>
+                        <span class="caption">Accept our <a href="#">terms and conditions</a></span>
                     </label>
                 </div>
+                
+                
+
                 </div> 
                 <button onclick="prevStep()">Previous</button>
                 <button onclick="submitForm()">Submit</button>
             </div>
-            <!-- step3 ends -->
+            <!-- step 3 ends -->
             <!-- Pagination at the bottom -->
             <div class="pagination">
                 <span class="step-number active" onclick="showStep(1)">1</span>
