@@ -20,46 +20,52 @@
     <link rel="stylesheet" href="assets/resources/js/main.js">
     <title>BDSET | Bangladesh-Bharot Digital Service and Employment Training Center</title>
 <style>
-            .center-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(60vh - 80px);
-            /* Adjust based on header and footer height */
-            padding: 20px;
-        }
+    .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(60vh - 80px);
+    /* Adjust based on header and footer height */
+    padding: 20px;
+}
 
-        .step {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+.step {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .step.active {
-            display: flex;
-        }
+.step.active {
+    display: flex;
+}
 
-        .step input {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            box-sizing: border-box;
-        }
+.step input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-        .step button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-        }
+.step button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+#suggestionView{
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 300px; 
+}
 </style>
 </head>
 <body>
@@ -114,66 +120,235 @@
             <!-- navbar ends -->
         </div>
         <!-- header ends -->
-        <!-- Our courses starts -->
+        <!-- registration starts -->
         <div class="center-content">
             <div id="step1" class="step active">
-                <input type="text" name="studentName" placeholder="Student Name">
-                <input type="date" name="date_of_birth" onblur="ageCheck()" placeholder="Date Of Birth">
-                <input type="email" name="emailAdress" placeholder="Email Address">
-                <input type="text" name="mobileNumber" placeholder="Mobile Number">
-    
-                <div>
-    
-                    <label for="gender">Gender :</label>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="student_name">Applicant Photo :</label>
+                        <input type="file" class="form-control" placeholder="Student Photo">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="student name">Student Name</label>
+                        <input type="text" class="form-control" type="text" placeholder="Enter Name">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="email">Email address</label>
+                        <input type="email"  class="form-control" name="email" placeholder="Enter Email Address">
+                    </div>
+        
                     
-                    <select class="selected" id="gender" name="gender"  placeholder="Mobile Number">
-                        
-                        <option value="MALE">MALE</option>
-                        <option value="MALE">FEMALE</option>
-                        <option value="MALE">OTHERS</option>
-                    </select>         
-                </div>    
-                              
-               
-                <input type="text" name="fathersName" placeholder="Father's Name">
-                <input type="text" name="mothersName" placeholder="Mother's Name">
-                <input type="text" name="religion" placeholder="Religion">
-                <input type="text" name="religion" placeholder="Blood Group">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="student name">Phone no.</label>
+                        <input type="text" class="form-control" type="text" placeholder="Enter Phone no.">
+
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="gencder">Gender</label>
+                        <select class="form-control" style="padding: 1rem .75rem;">
+                            <option label="-- SELECT --"></option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                            <option value="OTHERS">OTHERS</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="Date_of_Birth">Date of Birth</label>
+                        <input type="date" class="form-control"  placeholder=" Select Date of Birth">
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="father_name">Father's Name</label>
+                        <input type="text"  class="form-control" placeholder="Enter Father's Name">
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="mother_name">Mother's Name</label>
+                        <input type="text"  class="form-control" name="phone_number" placeholder="Enter Mother's Name">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="nidOrBirthCertificate">NID or Birth Certificate :<span style="color: red;">*</span></label>
+                        <select class="form-control" style="padding: 1rem .75rem;" id="nidOrBirthCertificate" onchange="toggleFields()">
+                            <option label="-- SELECT --"></option>
+                            <option value="nid">National ID (NID)</option>
+                            <option value="birth_certificate">Birth Certificate</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3" id="nidField">
+                        <label for="nid">National ID (NID) :</label>
+                        <input type="text" id="nid" class="form-control" type="text" placeholder="Enter National ID" onkeypress="isinputNumber1(event)">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3"id="birthCertificateField">
+                        <label for="birth_certificate">Birth Certificate :</label>
+                        <input type="text" id="birth_certificate" class="form-control" type="text" placeholder="Enter Birth Certificate" onkeypress="isinputNumber1(event)">
+                    </div>
+                </div>
+
                 <button onclick="nextStep()">Next</button>
             </div>
+             <!-- step1 ends -->
             <div id="step2" class="step">
-                <input type="email" name="email" placeholder="Batch">
-                <input type="tel" name="phone" placeholder="Venue">
-                <input type="tel" name="phone" placeholder="Educatinal Background">
-                <input type="tel" name="phone" placeholder="Institute Name">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="religion">Religion</label>
+                        <select class="form-control" style="padding: 1rem .75rem;">
+                            <option label="-- SELECT --"></option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                            <option value="OTHERS">OTHERS</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="blood_group">Blood Group : <span style="color: red;">*</span></label>
+                        <select class="form-control" style="padding: 1rem .75rem;">
+                            <option label="-- SELECT --"></option>
+                            <option value="A+">A+(ve)</option>
+                            <option value="O+">O+(ve)</option>
+                            <option value="B+">B+(ve)</option>
+                            <option value="AB+">AB+(ve)</option>
+                            <option value="A-">A-(ve)</option>
+                            <option value="O-">O-(ve)</option>
+                            <option value="B-">B-(ve)</option>
+                            <option value="AB-">AB-(ve)</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="education">Educational Background</label>
+                        <select class="form-control" style="padding: 1rem .75rem;">
+                            <option label="-- SELECT --"></option>
+                            <option value="Computer Science Engineering (CSE)">BSc.in CSE / 4 Years Running Students</option>
+                            <option value="Computer Science (CS)">Bsc.in CS / 4 Years Running Students</option>
+                            <option value="Computer Engineering (CE)">B.Sc in Computer Engineering / 4 Years Running Students</option>
+                            <option value="Electronics and Communication Engineering (ECE)">Bsc.in ECE / 4 Years Running Students</option>
+                            <option value="Information and Communications Technology (ICT)">Bsc.in ICT / 4 Years Running Students </option>
+                            <option value="Electrical and Electronic Engineering (EEE)">Bsc.in EEE / 4 Years Running Students</option>
+                            <option value="Information and Communication Engineering (ICE)">Bsc.in ICE / 4 Years Running Students</option>
+                            <option value="Computer Science & Information Technology (CSIT)">Bsc.in CSIT / 4 Years Running Students </option>
+                            <option value="Electronic and Telecommunication Engineering (ETE)">Bsc.in ETE / 4 Years Running Students </option>
+                            <option value="Software Engineering (SE)">Bsc.in SE / 4 Years Running Students </option>
+                            <option value="Information Technology (IT)">Bsc.in IT / 4 Years Running Students </option>
+                            <option value="Others">Bachelor degree in other disciplines ( Applicable for extra ordinay and notable achivement in AI, ML, DL or AR, VR, MR).</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="ssc">SSC/ Equivalent Certificate : <span style="color: red;">*</span></label>
+                        <input type="file" class="form-control" placeholder="Choose SSC Certificate">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="hsc">HSC/ Equivalent Certificate : <span style="color: red;">*</span></label>
+                        <input type="file" class="form-control" placeholder="Choose SSC Certificate">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="Graduation">Graduation/Testmonial Certificate :</label>
+                        <input type="file" class="form-control" placeholder="Choose Graduation/Testmonial Certificate">
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="searchInput">Institute Name: <span style="color: red;">*</span></label>
+                        <input type="text" id="searchInput" class="form-control mt-1" placeholder="Type to filter">
+                        <span>or</span>
+                        <select id="selectOptions" class="form-control" style="padding: 1rem .75rem;">
+                            <option label="Select"></option>
+                            <option value="abc">ABC</option>
+                            <option value="bcd">BCD</option>                      
+                        </select>
+                        
+                        <div id="suggestionView"></div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-3">
+                        <label for="otherCertificate">Other Certificate/ Achievement :</label>
+                        <input type="file" class="form-control" placeholder="Choose Other Certificate">
+                    </div>
+                </div>
                 <button onclick="prevStep()">Previous</button>
                 <button onclick="nextStep()">Next</button>
             </div>
+            <!-- step2 ends -->
             <div id="step3" class="step">
-                <div style="padding-bottom:15px">
-                    <label for="certificate1">Applicant Photo:</label>
-                    <input type="file" id="image" name="image1" accept="image/*">
+               <div class="row">
+
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="division">Division Name : <span style="color: red;">*</span></label>
+                    <select class="form-control" style="padding: 1rem .75rem;">
+                        <option label="-- SELECT --"></option>
+                        <option value="demo">demo 1</option>
+                        <option value="demo">demo 2</option>
+                        <option value="demo">demo 3</option>
+                        <option value="demo">demo 4</option>
+                        <option value="demo">demo 5</option>
+                        <option value="demo">demo 6</option>
+                        <option value="demo">demo 7</option>
+                    </select>
                 </div>
-                <div style="padding-bottom:15px">
-                    <label for="image3">SSC/ Equivalent Certificate:</label>
-                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">    
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="District">Metropoliton/District Name : <span style="color: red;">*</span></label>
+                    <select class="form-control" style="padding: 1rem .75rem;">
+                        <option label="-- SELECT --"></option>
+                        <option value="demo">demo 1</option>
+                        <option value="demo">demo 2</option>
+                        <option value="demo">demo 3</option>
+                        <option value="demo">demo 4</option>
+                        <option value="demo">demo 5</option>
+                        <option value="demo">demo 6</option>
+                        <option value="demo">demo 7</option>
+                    </select>
                 </div>
-                <div style="padding-bottom:15px">
-                    <label for="image4">HSC/ Equivalent Certificate:</label>
-                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">     
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="District">Thana/Upazila Name : <span style="color: red;">*</span></label>
+                    <select class="form-control" style="padding: 1rem .75rem;">
+                        <option label="-- SELECT --"></option>
+                        <option value="demo">demo 1</option>
+                        <option value="demo">demo 2</option>
+                        <option value="demo">demo 3</option>
+                        <option value="demo">demo 4</option>
+                        <option value="demo">demo 5</option>
+                        <option value="demo">demo 6</option>
+                        <option value="demo">demo 7</option>
+                    </select>
                 </div>
-                <div style="padding-bottom:15px">
-                    <label for="image5">Graduation/Testmonial Certificate:</label>
-                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="address">Address : <span style="color: red;">*</span></label>
+                    <textarea name="address" class="form-control" placeholder="Address Here.."></textarea>
+
                 </div>
-                <div style="padding-bottom:15px">
-                    <label for="certificate5">Other Certificate/ Achievement:</label>
-                    <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="venue">Venue :</label>
+                    <select class="form-control" style="padding: 1rem .75rem;">
+                        <option label="-- SELECT --"></option>
+                        <option value="DHAKA">DHAKA</option>
+                        <option value="RAJSHAHI">RAJSHAHI</option>
+                        <option value="KHULNA">KHULNA</option>
+                        <option value="BARISHAL">BARISHAL</option>
+                        <option value="SYLHET">SYLHET</option>
+                    </select>
                 </div>
-    
+                <div class="col-lg-6 col-sm-12 mb-3">
+                    <label for="batch :">Batch :<span style="color: red;">*</span></label>
+                    <select class="form-control" style="padding: 1rem .75rem;">
+                        <option label="-- SELECT --"></option>
+                        <option value="Batch-1">Batch-1</option>
+                        <option value="Batch-2">Batch-2</option>
+                        <option value="Batch-3">Batch-3</option>
+                        <option value="Batch-4">Batch-4</option>
+                        <option value="Batch-5">Batch-5</option>
+                        <option value="Batch-6">Batch-6</option>
+                        <option value="Batch-7">Batch-7</option>
+                        <option value="Batch-8">Batch-8</option>
+                    </select>
+                </div>
+                <div class="col-12 mb-3">
+                    <label class="control control--checkbox">
+                        <span class="caption">Accept our <a href="#">terms and conditions</a></span>
+                        <input type="checkbox" checked="checked" />
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
+                </div> 
                 <button onclick="prevStep()">Previous</button>
                 <button onclick="submitForm()">Submit</button>
             </div>
+            <!-- step3 ends -->
             <!-- Pagination at the bottom -->
             <div class="pagination">
                 <span class="step-number active" onclick="showStep(1)">1</span>
@@ -182,7 +357,7 @@
             </div>
         </div>
 
-        <!-- Our courses starts -->
+        <!-- registration ends -->
         <!-- footer starts -->
         <footer class="module_container_top">
             <div class="footer_section">
@@ -242,6 +417,7 @@
     <script src="assets/resources/js/main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        //For next and previous page steps
         let currentStep = 1;
 
         function nextStep() {
@@ -260,6 +436,84 @@
             alert('Form submitted successfully!');
         }
     </script>
+    <script>
+        // For selecting  NID or Birth certificate
+        function toggleFields() {
+            var nidOrBirthCertificate = document.getElementById("nidOrBirthCertificate");
+            var nidField = document.getElementById("nidField");
+            var birthCertificateField = document.getElementById("birthCertificateField");
 
+            if (nidOrBirthCertificate.value === "nid") {
+                nidField.style.display = "block";
+                birthCertificateField.style.display = "none";
+            } else if (nidOrBirthCertificate.value === "birth_certificate") {
+                nidField.style.display = "none";
+                birthCertificateField.style.display = "block";
+            } else {
+                nidField.style.display = "none";
+                birthCertificateField.style.display = "none";
+            }
+        }
+        toggleFields();
+    </script>
+    <script>
+        var selectOptions = document.getElementById('selectOptions');
+        var suggestionView = document.getElementById('suggestionView');
+        var searchInput = document.getElementById('searchInput');
+
+        // Event listener for input changes
+        searchInput.addEventListener('input', function() {
+            var input = this.value.trim().toLowerCase();
+            filterSelectOptions(input);
+        });
+
+        // Event listener for select change
+        selectOptions.addEventListener('change', function() {
+            var selectedValue = this.value;
+            console.log('Selected value:', selectedValue);
+        });
+
+        // Event listener for clicks outside the input and suggestion view
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !suggestionView.contains(event.target)) {
+                suggestionView.style.display = 'none';
+            }
+        });
+
+        // Filter select options based on input
+        function filterSelectOptions(input) {
+            var options = Array.from(selectOptions.options);
+
+            var filteredOptions = options.filter(function(option) {
+                return option.value.toLowerCase().includes(input);
+            });
+
+            // Show/hide suggestions
+            showSuggestions(filteredOptions);
+        }
+
+        // Show suggestions
+        function showSuggestions(filteredOptions) {
+            suggestionView.innerHTML = '';
+
+            if (filteredOptions.length > 0) {
+                suggestionView.style.display = 'block';
+
+                filteredOptions.forEach(function(option) {
+                    var suggestionElement = document.createElement('div');
+                    suggestionElement.classList.add('suggestion');
+                    suggestionElement.innerText = option.value;
+                    suggestionView.appendChild(suggestionElement);
+
+                    suggestionElement.addEventListener('click', function() {
+                        selectOptions.value = option.value;
+                        suggestionView.style.display = 'none';
+                    });
+                });
+            } else {
+                suggestionView.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
