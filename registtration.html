@@ -27,9 +27,10 @@
     min-height: calc(60vh - 80px);
     /* Adjust based on header and footer height */
     padding: 20px;
+    margin: 3rem;
 }
 
-.step {
+.registration_area {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -42,11 +43,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.step.active {
+.registration_area.active {
     display: flex;
 }
 
-.step input {
+.registration_area input {
     display: block;
     width: 100%;
     margin-bottom: 10px;
@@ -54,11 +55,15 @@
     box-sizing: border-box;
 }
 
-.step button {
+.registration_area button {
     display: block;
-    width: 100%;
+    width: 220px;
     padding: 10px;
     margin-top: 10px;
+    background-color: #68d08b;
+    color: #fff;
+    border: 1px solid #68d08b;
+    border-radius: 5px;
 }
 #suggestionView{
     border: 1px solid #ccc;
@@ -177,7 +182,7 @@
         <!-- header ends -->
         <!-- registration starts -->
         <div class="registration_section">
-            <div id="step1" class="step active">
+            <div id="step1" class="registration_area active">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 mb-3">
                         <label for="student_name">Applicant Photo :</label>
@@ -243,7 +248,7 @@
                 <button onclick="nextStep()">Next</button>
             </div>
              <!-- step 1 ends -->
-            <div id="step2" class="step">
+            <div id="step2" class="registration_area">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 mb-3">
                         <label for="religion">Religion</label>
@@ -320,7 +325,7 @@
                 <button onclick="nextStep()">Next</button>
             </div>
             <!-- step 2 ends -->
-            <div id="step3" class="step">
+            <div id="step3" class="registration_area">
                <div class="row">
                 <div class="col-lg-6 col-sm-12 mb-3">
                     <label for="division">Division Name : <span style="color: red;">*</span></label>
@@ -474,25 +479,56 @@
     <script src="assets/resources/js/main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        //For next and previous page steps
         let currentStep = 1;
-
+        const totalSteps = 3; // Total number of steps
+    
         function nextStep() {
-            document.getElementById('step' + currentStep).classList.remove('active');
-            currentStep++;
-            document.getElementById('step' + currentStep).classList.add('active');
+            if (currentStep < totalSteps) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep++;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updatePagination();
+            }
         }
-
+    
         function prevStep() {
-            document.getElementById('step' + currentStep).classList.remove('active');
-            currentStep--;
-            document.getElementById('step' + currentStep).classList.add('active');
+            if (currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updatePagination();
+            }
         }
-
+    
+        function showStep(step) {
+            if (step >= 1 && step <= totalSteps) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep = step;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updatePagination();
+            }
+        }
+    
         function submitForm() {
             alert('Form submitted successfully!');
         }
+    
+        function updatePagination() {
+            const paginationSteps = document.querySelectorAll('.step-number');
+            paginationSteps.forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePagination();
+        });
     </script>
+    
     <script>
         // For selecting  NID or Birth certificate
         function toggleFields() {
